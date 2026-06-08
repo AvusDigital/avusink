@@ -1,187 +1,225 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Avus Ink</title>
-<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avus Ink</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
-<script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 
-<style>
-body {
-  background:#050505;
-  color:white;
-}
+  <style>
+    body {
+      background: #050505;
+      color: white;
+    }
 
-.grain {
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  opacity:0.04;
-  background-image:url("https://www.transparenttextures.com/patterns/noise.png");
-}
-</style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .grain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .04;
+      background-image: url("https://www.transparenttextures.com/patterns/noise.png");
+      z-index: 999;
+    }
+  </style>
 </head>
 
 <body class="antialiased">
 
-<div class="grain"></div>
+  <div class="grain"></div>
 
-<!-- HEADER / MENU -->
-<header class="">
+<!-- HERO -->
+<section class="relative min-h-screen overflow-hidden">
 
-  <div class="flex items-center justify-between px-8 py-5">
+  <!-- FOTO DE FUNDO -->
+  <img
+    src="https://plus.unsplash.com/premium_photo-1661714220704-711551e73799?q=80&w=869&auto=format&fit=crop"
+    alt=""
+    class="absolute inset-0 w-full h-full object-cover"
+  >
 
-    <!-- HAMBURGUER -->
-    <button id="menuBtn" class="md:hidden flex flex-col gap-1.5">
-      <span class="w-6 h-[2px] bg-white"></span>
-      <span class="w-6 h-[2px] bg-white"></span>
-      <span class="w-6 h-[2px] bg-white"></span>
-    </button>
-
+  <!-- DEGRADÊ PRETO -->
+  <div
+    class="absolute inset-0 z-10"
+    style="
+      background: linear-gradient(
+        90deg,
+        rgba(5,5,5,1) 0%,
+        rgba(5,5,5,1) 50%,
+        rgba(5,5,5,.85) 65%,
+        rgba(5,5,5,.25) 80%,
+        rgba(5,5,5,0) 100%
+      );
+    ">
   </div>
 
-  <!-- MOBILE MENU -->
-  <div id="mobileMenu" class="hidden md:hidden flex flex-col items-center gap-8 py-10 bg-black/90 border-t border-white/10">
+  <!-- HEADER -->
+  <header class="absolute top-0 left-0 w-full z-30">
 
-    <a href="#work" class="text-gray-300 tracking-widest uppercase text-sm">Coleção</a>
-    <a href="#about" class="text-gray-300 tracking-widest uppercase text-sm">Estúdio</a>
-    <a href="#contact" class="text-gray-300 tracking-widest uppercase text-sm">Contato</a>
+    <div class="flex items-center justify-end px-8 md:px-20 py-8">
 
-    <a href="https://wa.me/5500000000000?text=Quero agendar uma tattoo na Avus Ink"
-       class="mt-6 border border-white px-6 py-3 uppercase text-xs tracking-widest">
-      WhatsApp
-    </a>
+      <nav class="hidden md:flex gap-10 text-xs uppercase tracking-[0.25em] text-gray-300">
+        <a href="#work" class="hover:text-white transition">Coleção</a>
+        <a href="#about" class="hover:text-white transition">Estúdio</a>
+        <a href="#contact" class="hover:text-white transition">Contato</a>
+      </nav>
 
-  </div>
+      <button id="menuBtn" class="md:hidden flex flex-col gap-1.5">
+        <span class="w-6 h-[2px] bg-white"></span>
+        <span class="w-6 h-[2px] bg-white"></span>
+        <span class="w-6 h-[2px] bg-white"></span>
+      </button>
 
-</header>
+    </div>
 
-<script>
-const btn = document.getElementById("menuBtn");
-const menu = document.getElementById("mobileMenu");
+    <div id="mobileMenu" class="hidden md:hidden px-8 pb-8 text-right">
+      <div class="flex flex-col gap-5 text-sm uppercase tracking-[0.2em] text-gray-300">
+        <a href="#work">Coleção</a>
+        <a href="#about">Estúdio</a>
+        <a href="#contact">Contato</a>
+      </div>
+    </div>
 
-let open = false;
+  </header>
 
-btn.addEventListener("click", () => {
-  open = !open;
-  menu.classList.toggle("hidden");
-});
-</script>
+  <!-- CONTEÚDO -->
+  <div class="relative z-20 min-h-screen flex items-center">
 
-<!-- HERO LUXO -->
-<section class="h-screen flex items-end px-10 md:px-24 pb-24 relative pt-24">
+    <div class="px-8 md:px-24 max-w-2xl">
 
-  <img 
-    src="https://images.pexels.com/photos/4125653/pexels-photo-4125653.jpeg"
-    class="absolute inset-0 w-full h-full object-cover opacity-35"
-  />
+      <img
+        src="avus-ink.png"
+        alt="Avus Ink"
+        class="w-[150px] md:w-[250px] max-w-full"
+      >
 
-  <div class="absolute inset-0 bg-black/80"></div>
+      <p class="mt-6 text-lg md:text-xl text-gray-300 leading-relaxed max-w-md">
+        Tattoo studio de alta precisão estética.
+        Identidade permanente construída com intenção.
+      </p>
 
-  <div class="relative max-w-3xl">
+      <a
+        href="https://wa.me/5500000000000"
+        class="inline-block mt-12 border border-white px-8 py-4 uppercase tracking-[0.2em] text-sm hover:bg-white hover:text-black transition"
+      >
+        Agendar Consulta
+      </a>
 
-    <img src="avus-ink.png" class="w-56 md:w-72">
-
-    <p class="mt-10 text-gray-300 text-lg md:text-xl max-w-xl leading-relaxed">
-      Tattoo studio de alta precisão estética.  
-      Identidade permanente, construída com intenção.
-    </p>
-
-    <div class="mt-10 flex gap-8 text-sm tracking-widest uppercase">
-      <a href="#work" class="hover:opacity-60">Coleção</a>
-      <a href="#about" class="hover:opacity-60">Estúdio</a>
-      <a href="#contact" class="hover:opacity-60">Contato</a>
     </div>
 
   </div>
-</section>
-
-<!-- STATEMENT -->
-<section class="py-44 px-10 md:px-32">
-
-  <p class="text-3xl md:text-5xl font-light leading-snug max-w-5xl">
-    Não criamos tatuagens.  
-    Criamos permanência visual com linguagem autoral.
-  </p>
 
 </section>
 
-<!-- GALERIA -->
-<section id="work" class="px-6 md:px-24 pb-44">
+  <!-- STATEMENT -->
+  <section class="py-32 md:py-44 px-8 md:px-24">
 
-  <div class="mb-20">
-    <h2 class="text-4xl md:text-6xl font-light">Coleção</h2>
-    <p class="text-gray-500 mt-4 tracking-widest uppercase text-sm">
-      trabalhos selecionados
-    </p>
-  </div>
-
-  <div class="grid md:grid-cols-3 gap-6">
-
-    <img class="w-full hover:opacity-70 transition"
-      src="https://images.pexels.com/photos/3997389/pexels-photo-3997389.jpeg">
-
-    <img class="w-full hover:opacity-70 transition"
-      src="https://images.pexels.com/photos/4125653/pexels-photo-4125653.jpeg">
-
-    <img class="w-full hover:opacity-70 transition"
-      src="https://images.pexels.com/photos/189349/pexels-photo-189349.jpeg">
-
-    <img class="w-full hover:opacity-70 transition"
-      src="https://images.pexels.com/photos/458718/pexels-photo-458718.jpeg">
-
-    <img class="w-full hover:opacity-70 transition"
-      src="https://images.pexels.com/photos/4123900/pexels-photo-4123900.jpeg">
-
-    <img class="w-full hover:opacity-70 transition"
-      src="https://images.pexels.com/photos/304664/pexels-photo-304664.jpeg">
-
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="py-44 px-10 md:px-32 bg-black/60">
-
-  <div class="max-w-4xl">
-
-    <h2 class="text-5xl font-light mb-10">Estúdio</h2>
-
-    <p class="text-xl text-gray-300 leading-relaxed">
-      Um espaço minimalista dedicado à arte permanente.  
-      Cada projeto é desenvolvido como peça única, sem repetição, sem fórmula.
+    <p class="text-3xl md:text-5xl font-light leading-snug max-w-5xl">
+      Não criamos tatuagens.
+      Criamos permanência visual com linguagem autoral.
     </p>
 
-  </div>
-</section>
+  </section>
 
-<!-- CONTACT -->
-<section id="contact" class="h-screen flex items-center justify-center text-center px-6">
+  <!-- GALERIA -->
+  <section id="work" class="px-8 md:px-24 pb-32">
 
-  <div>
+    <div class="mb-20">
 
-    <h2 class="text-6xl font-light">
-      Agende sua peça
-    </h2>
+      <h2 class="text-4xl md:text-6xl font-light">
+        Coleção
+      </h2>
 
-    <p class="text-gray-500 mt-6">
-      Avus Ink — identidade construída na pele
-    </p>
+      <p class="text-gray-500 mt-4 tracking-widest uppercase text-sm">
+        Trabalhos selecionados
+      </p>
 
-    <a href="https://wa.me/5500000000000?text=Quero agendar uma tattoo na Avus Ink"
-       class="inline-block mt-12 border border-white px-12 py-4 tracking-widest uppercase text-sm hover:bg-white hover:text-black transition">
-      WhatsApp
-    </a>
+    </div>
 
-  </div>
+    <div class="grid md:grid-cols-3 gap-6">
 
-</section>
+      <img class="w-full aspect-[4/5] object-cover hover:opacity-70 transition"
+        src="https://images.pexels.com/photos/3997389/pexels-photo-3997389.jpeg">
 
-<!-- FOOTER -->
-<footer class="py-10 text-center text-gray-600 border-t border-white/10 text-sm">
-  AVUS INK © — Tattoo Studio
-</footer>
+      <img class="w-full aspect-[4/5] object-cover hover:opacity-70 transition"
+        src="https://images.pexels.com/photos/4125653/pexels-photo-4125653.jpeg">
+
+      <img class="w-full aspect-[4/5] object-cover hover:opacity-70 transition"
+        src="https://images.pexels.com/photos/189349/pexels-photo-189349.jpeg">
+
+      <img class="w-full aspect-[4/5] object-cover hover:opacity-70 transition"
+        src="https://images.pexels.com/photos/458718/pexels-photo-458718.jpeg">
+
+      <img class="w-full aspect-[4/5] object-cover hover:opacity-70 transition"
+        src="https://images.pexels.com/photos/4123900/pexels-photo-4123900.jpeg">
+
+      <img class="w-full aspect-[4/5] object-cover hover:opacity-70 transition"
+        src="https://images.pexels.com/photos/304664/pexels-photo-304664.jpeg">
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-32 md:py-44 px-8 md:px-24 bg-black/40">
+
+    <div class="max-w-4xl">
+
+      <h2 class="text-5xl font-light mb-10">
+        Estúdio
+      </h2>
+
+      <p class="text-xl text-gray-300 leading-relaxed">
+        Um espaço minimalista dedicado à arte permanente.
+        Cada projeto é desenvolvido como peça única,
+        sem repetição e sem fórmulas prontas.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="min-h-screen flex items-center justify-center text-center px-8">
+
+    <div>
+
+      <h2 class="text-5xl md:text-7xl font-light">
+        Agende sua peça
+      </h2>
+
+      <p class="text-gray-500 mt-6">
+        Avus Ink — identidade construída na pele
+      </p>
+
+      <a href="https://wa.me/5500000000000"
+        class="inline-block mt-12 border border-white px-12 py-4 tracking-[0.2em] uppercase text-sm hover:bg-white hover:text-black transition">
+        WhatsApp
+      </a>
+
+    </div>
+
+  </section>
+
+  <footer class="py-10 text-center text-gray-600 border-t border-white/10 text-sm">
+    AVUS INK © — Tattoo Studio
+  </footer>
+
+  <script>
+    const btn = document.getElementById("menuBtn");
+    const menu = document.getElementById("mobileMenu");
+
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+  </script>
 
 </body>
+
 </html>
